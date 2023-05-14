@@ -57,6 +57,7 @@ $(function () {
 
   displayTime();
   setInterval(displayTime, 1000);
+  setInterval(refreshColor, 1000);
   hourlyColor();
   refreshColor();
 });
