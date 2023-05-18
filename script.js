@@ -1,8 +1,7 @@
 // Wrap all code that interacts with the DOM in a call to jQuery to ensure that
 // the code isn't run until the browser has finished rendering all the elements
 // in the html.
-
-var saveButton = document.querySelector("Btn")
+var saveButton = document.getElementById("btn")
 
 $(function () {
   // TODO: Add code to get any user input that was saved in localStorage and set
@@ -20,7 +19,7 @@ $(function () {
   function blockColor() {
     $(".time-block").each(function () {
       var blockHour = (this.id);
-      console.log(this.id)
+      // console.log(this.id)
       $(this).toggleClass("past", blockHour < currentTime);
       $(this).toggleClass("present", blockHour == currentTime);
       $(this).toggleClass("future", blockHour > currentTime);
@@ -46,12 +45,18 @@ $(function () {
   blockColor();
   refreshColor();
 
+
+
+
 });
 
+saveButton.addEventListener("click", saveInput);
+var toDo = document.querySelector("saveBtn");
 
-// saveButton.addEventListener("click", saveInput);
+function saveInput() {
+  console.log("testing");
+  var score = JSON.parse(localStorage.getItem("toDo")) || "";
+  score.push({ toDo });
+  localStorage.setItem("toDo");
 
-// function saveInput() {
-//   console.log(save)
-// }
-
+}
