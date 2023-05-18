@@ -1,7 +1,7 @@
 // Wrap all code that interacts with the DOM in a call to jQuery to ensure that
 // the code isn't run until the browser has finished rendering all the elements
 // in the html.
-var saveButton = document.getElementById("btn")
+
 
 $(function () {
   // TODO: Add code to get any user input that was saved in localStorage and set
@@ -39,6 +39,11 @@ $(function () {
     });
   }
 
+
+
+
+
+
   displayTime();
   setInterval(displayTime, 1000);
   setInterval(refreshColor, 1000);
@@ -46,17 +51,30 @@ $(function () {
   refreshColor();
 
 
-
-
 });
 
-saveButton.addEventListener("click", saveInput);
-var toDo = document.querySelector("saveBtn");
+var saveButton = document.getElementById("btn");
 
-function saveInput() {
-  console.log("testing");
-  var score = JSON.parse(localStorage.getItem("toDo")) || "";
-  score.push({ toDo });
-  localStorage.setItem("toDo");
+var input = document.getElementById("#toDo");
 
+
+saveButton.addEventListener("click", saveText);
+
+
+function saveText() {
+  var descriptionText = input.value.trim()
+  localStorage.setItem("description", JSON.stringify(descriptionText));
+};
+
+function init() {
+  localStorage.getItem("description");
 }
+b
+
+console.log(input)
+
+
+// function init() {
+//   var storedDescription = JSON.parse(localStorage.getItem("description"));
+// }
+
