@@ -6,3 +6,4 @@ To get you life together follow this link: https://kmitch137.github.io/day_plann
 
 
 
+![image](https://github.com/KMitch137/day_planner/assets/124840930/5069dbaf-3744-4620-9569-74bf71cac127)
