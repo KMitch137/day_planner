@@ -40,10 +40,6 @@ $(function () {
   }
 
 
-
-
-
-
   displayTime();
   setInterval(displayTime, 1000);
   setInterval(refreshColor, 1000);
@@ -53,28 +49,33 @@ $(function () {
 
 });
 
-var saveButton = document.getElementById("btn");
+var saveButton = document.querySelectorAll(".btn");
 
 var input = document.getElementById("#toDo");
 
+for (var i = 0; i < saveButton.length; i++) {
 
-saveButton.addEventListener("click", saveText);
+  saveButton[i].onclick = saveText
+}
 
 
 function saveText() {
-  var descriptionText = input.value.trim()
-  localStorage.setItem("description", JSON.stringify(descriptionText));
+
+  var descriptionText = this.previousElementSibling.value.trim()
+  var time = this.parentNode.getAttribute("id")
+
+  localStorage.setItem(time, descriptionText);
 };
 
-function init() {
-  localStorage.getItem("description");
+for (var i = 8; i <= 17; i++){
+
+var element = document.getElementById(i).children[1]
+
+element.append(localStorage.getItem(i))
+
+if (element.innerHTML === "null") {
+  element.value = ""
 }
-b
+}
 
-console.log(input)
-
-
-// function init() {
-//   var storedDescription = JSON.parse(localStorage.getItem("description"));
-// }
 
